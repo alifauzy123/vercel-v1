@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./output.css" rel="stylesheet">
   <title>Ambatukam!</title>
+  <style>
+  /* Pastikan pakai !important agar menimpa semua Tailwind */
+  #teksFooter {
+    top: 600px !important;
+  }
+
+  @media (max-width: 768px) {
+    #teksFooter {
+      top: 400px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #teksFooter {
+      top: 300px !important;
+    }
+  }
+</style>
+
+
 </head>
 <body class="m-0 p-0 bg-gray-100 text-center relative min-h-screen">
 
@@ -24,11 +44,15 @@
      class="w-full h-screen object-cover cursor-pointer">
   </div>
 
-  <!-- Tulisan bawah (footer) -->
-  <div id="teksFooter"
-       class="absolute top-[600px] w-full text-center text-white text-2xl font-bold opacity-0 transition-opacity duration-500 pointer-events-none">
-    SOSOK AMBARUWO!!!!
-  </div>
+<!-- Tulisan bawah (footer) -->
+<div id="teksFooter"
+     class="absolute w-full text-center text-white text-2xl font-bold opacity-0 transition-opacity duration-500 pointer-events-none">
+  SOSOK AMBARUWO!!!!
+</div>
+
+
+
+
 
   <!-- Audio -->
   <audio id="sound" src="ambaruwo.mp3" loop></audio>
