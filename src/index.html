@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+  <title>Ambatukam!</title>
+</head>
+<body class="m-0 p-0 bg-gray-100 text-center relative min-h-screen">
+
+  <!-- Judul -->
+  <h1 id="judul" class="text-3xl font-bold underline bg-red-500 py-4">
+    Ambatukam!
+  </h1>
+
+  <!-- Tombol -->
+  <button id="tombol" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+    Click Here
+  </button>
+
+  <!-- Gambar (awalnya disembunyikan) -->
+  <div id="gambarContainer" class="w-full hidden mt-4 relative">
+    <img id="gambar" src="ambaruwo.jpg" alt="Gambar Ambatuwo"
+         class="w-full h-auto object-cover cursor-pointer">
+  </div>
+
+  <!-- Tulisan bawah (footer) -->
+  <div id="teksFooter"
+       class="absolute top-[600px] w-full text-center text-white text-2xl font-bold opacity-0 transition-opacity duration-500 pointer-events-none">
+    SOSOK AMBARUWO!!!!
+  </div>
+
+  <!-- Audio -->
+  <audio id="sound" src="ambaruwo.mp3" loop></audio>
+
+  <script>
+    const tombol = document.getElementById('tombol');
+    const gambarContainer = document.getElementById('gambarContainer');
+    const gambar = document.getElementById('gambar');
+    const judul = document.getElementById('judul');
+    const sound = document.getElementById('sound');
+    const teksFooter = document.getElementById('teksFooter');
+
+    tombol.addEventListener('click', () => {
+      gambarContainer.classList.remove('hidden');
+      tombol.classList.add('hidden');
+      judul.classList.add('hidden');
+
+      // Tampilkan tulisan SOSOK AMBARUWO
+      teksFooter.classList.remove('opacity-0');
+
+      // Play sound
+      sound.play().catch(e => console.log('Autoplay blocked:', e));
+    });
+
+    gambar.addEventListener('click', () => {
+      gambarContainer.classList.add('hidden');
+      tombol.classList.remove('hidden');
+      judul.classList.remove('hidden');
+
+      // Sembunyikan tulisan SOSOK AMBARUWO
+      teksFooter.classList.add('opacity-0');
+
+      // Pause sound
+      sound.pause();
+
+      // Vibrate
+      if (navigator.vibrate) {
+        navigator.vibrate([100, 50, 100]);
+      }
+    });
+  </script>
+
+</body>
+</html>
